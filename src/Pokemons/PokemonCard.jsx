@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 import '../App.css';
 
-const TYPE_COLORS = {
-    bug: '#B1C12E',
-    electric: '#FCBC17',
-    fairy: '#F4B1F4',
-    fighting: '#82551D',
-    fire: '#E73B0C',
-    flying: '#A3B3F7',
-    ghost: '#6060B2',
-    grass: '#74C236',
-    ground: '#D3B357',
-    ice: '#A3E7FD',
-    normal: '#C8C4BC',
-    poison: '#934594',
-    psychic: '#ED4882',
-    rock: '#B9A156',
-    steel: '#B5B5C3',
-    water: '#0A43E0'
+const ColorsOfType = {
+    bug: '#A1C34F',
+    electric: '#FFCA1E',
+    fairy: '#D7B7F4',
+    fighting: '#0E3250',
+    fire: '#DE3B0C',
+    flying: '#A7A8F7',
+    ghost: '#7357A1',
+    grass: '#5BCC39',
+    ground: '#C38243',
+    ice: '#8BF6FD',
+    normal: '#C8BAA1',
+    poison: '#BC66BD',
+    psychic: '#ED7DB9',
+    rock: '#969469',
+    steel: '#AAA8BB',
+    water: '#1D7ED1'
   };
 
 class PokemonCard extends Component {
@@ -36,7 +36,7 @@ class PokemonCard extends Component {
                             
                                 <div className="col-6 col-xl-7 text-right align-items-center">
                                         {this.props.pokemon.type.map((type,i) =>
-                                            <span key={i} className="badge badge-pill mt-1 " style={{backgroundColor: `${TYPE_COLORS[type]}`}}>
+                                            <span key={i} className="badge badge-pill mt-1 " style={{backgroundColor: `${ColorsOfType[type]}`}}>
                                                 {type.charAt(0).toUpperCase() + type.slice(1)}
                                             </span>
                                         )} 
@@ -44,12 +44,12 @@ class PokemonCard extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-6 col-xl-5 text-right ">
-                                    <div style={{ height:'90%'}}  className="float-left"> 
+                                    <div style={{ height:'100%'}}  className="float-left"> 
                                         <div className="text-center"><i className="fa fa-bolt" style={{color:'crimson'}}></i></div> 
-                                        <div className="progress" style={{ height:'90%', width: '20px', backgroundColor:'silver'}} >
+                                        <div className="progress" style={{ height:'100%', width: '20px', backgroundColor:'silver'}} >
                                             <div className="progress-bar " role="progressbar" 
                                                 style={{
-                                                height: `${this.props.pokemon.stats.attack}%`,
+                                                height: `${Math.min(this.props.pokemon.stats.attack,100)}%`,
                                                 width: '100%',
                                                 backgroundColor: `crimson`                                           
                                             }}>
@@ -57,12 +57,12 @@ class PokemonCard extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div style={{ height:'90%', width: '20px'}} className="float-left ml-1">
+                                    <div style={{ height:'100%', width: '20px'}} className="float-left ml-1">
                                         <div className="text-center" style={{color:'green'}}><i className="fa fa-shield-alt"></i></div>    
-                                        <div className="progress" style={{ height:'90%', backgroundColor:'silver'}} >
+                                        <div className="progress" style={{ height:'100%', backgroundColor:'silver'}} >
                                             <div className="progress-bar" role="progressbar"
                                                 style={{
-                                                height: `${this.props.pokemon.stats.defense}%`,
+                                                height: `${Math.min(this.props.pokemon.stats.defense,100)}%`,
                                                 width: '100%',
                                                 backgroundColor: `green`,                                                
                                                 }}
@@ -78,8 +78,8 @@ class PokemonCard extends Component {
                             
                             </div>
                             <br/>
-                            <div className="row align-items-center">
-                                <div className="col-4">
+                            <div className="row align-items-center mt-2">
+                                <div className="col-4 text-left">
                                     <i className="fa fa-heart" style={{color:'red'}}></i> HP
                                 </div>
                                 <div className="col-8">
@@ -88,8 +88,8 @@ class PokemonCard extends Component {
                                             className="progress-bar "
                                             role="progressbar"
                                             style={{
-                                            width: `${this.props.pokemon.stats.hp}%`,
-                                            backgroundColor: `blue`
+                                            width: `${this.props.pokemon.stats.hp}px`,
+                                            backgroundColor: `#4A69FF`
                                             }}
                                         >
                                             <small>{this.props.pokemon.stats.hp}</small>
@@ -98,7 +98,7 @@ class PokemonCard extends Component {
                                 </div>
                             </div>
                             <div className="row align-items-center">
-                                <div className="col-4"> 
+                                <div className="col-4 text-left"> 
                                     Speed
                                 </div>
                                 <div className="col-8">
@@ -107,7 +107,7 @@ class PokemonCard extends Component {
                                             className="progress-bar "
                                             role="progressbar"
                                             style={{
-                                            width: `${this.props.pokemon.stats.speed}%`,
+                                            width: `${this.props.pokemon.stats.speed}px`,
                                             backgroundColor: `gold`
                                             }}
                                         >

@@ -19,7 +19,7 @@ class App2 extends Component {
   } 
 
   fetchPokemon=()=>{
-    fetch('https://pokeapi.co/api/v2/pokemon/?offset=00&limit=101')
+    fetch('https://pokeapi.co/api/v2/pokemon/?offset=00&limit=200')
       .then(response => response.json())
       .then(result => this.renderToList(result.results))
   }
@@ -47,8 +47,8 @@ class App2 extends Component {
           )      
     )       
   }
-  componentDidMount(){
-      this.fetchPokemon();
+  componentDidMount(){  
+    this.fetchPokemon();
     }
   gotoNextPage=()=>{
     this.setState({
@@ -93,7 +93,7 @@ class App2 extends Component {
           <label>My Pokedex</label>
         </header>
         <section className="App-content">
-          <div className="pt-2" style={{ backgroundColor:'red'}}>
+          <div className="pt-2" style={{ backgroundColor:'#EE3D48'}}>
             {this.state.filtrShow ?
               <div>
                 <PokemonFiltr 
@@ -102,14 +102,13 @@ class App2 extends Component {
                   
                 />
                 <span type="button" onClick={this.filtrHandle}><i className="fa fa-angle-up"></i></span>
-              </div>
-              
+              </div>              
               :
               <span type="button" onClick={this.filtrHandle}><i className="fa fa-angle-down"></i></span>
               } 
               <hr />
           </div>
-          <div className="row">            
+          <div className="row App-cardsRow justify-content-around">            
             <div className="col">   
               {CurrentPokemon.length!==0 ?            
                 <PokemonList pokemons = {CurrentPokemon}/>

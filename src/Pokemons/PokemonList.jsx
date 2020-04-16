@@ -7,7 +7,7 @@ class PokemonList extends Component {
         return (
             <div>
                 {this.props.pokemons.length!==0 ?
-                    <div className="App-cardsRow row justify-content-around">
+                    <div className="row justify-content-around">
                         {this.props.pokemons.map((pokemon,i)=>
                             <PokemonCard pokemon={pokemon} key={pokemon.id}/>
                         )}
