@@ -1,0 +1,98 @@
+.App-container {
+  text-align: center;
+  background-color: #282c34;  
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  min-height: 100vh;
+}
+.App-head, .App-footer {
+  color: white;
+}
+.App-footer, .App-info {
+  font-size: small;
+}
+.App-content{
+  width: 70vw;
+  background-color: whitesmoke;
+  min-height: 80vh;
+  border: 10px solid red;
+}
+.App-cardsRow {
+  min-height: 60vh;
+  margin: 0px !important;
+  padding: 5px;
+}
+.PCard{
+  background-color: snow;
+  border: 1px solid black;
+  min-height: 230px;
+  margin-top: 3px;
+  max-width: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 1s;
+  font-size:  calc(10px + 1vmin);
+}
+.PCard:hover {
+  background-color:antiquewhite;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  max-width: 400px;
+  transform: scale(1.1);
+}
+.face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.front{
+  z-index: 100;
+  background-color: inherit;
+  backface-visibility: hidden;
+}
+.back{
+  background-image: url('./RverseCard.png');
+  background-size: 100%;
+  background-position: center;
+}
+.App-info {
+  min-height: 10vh;
+  background-color: red;
+}
+.App-filter {
+  width: 50%;
+  font-size: calc(10px + 1vmin);
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .PCard {
+    animation: App-logo-spin 2 1s linear;
+  }
+}
+@media screen and (max-width:800px)  {
+  .App-cardsRow {
+    align-items: center;
+    justify-content: center; 
+  }
+  .App-content{
+    width: 90vw;
+  }
+  .PCard{
+    min-height:230px ;
+  }
+}
+@media screen and (max-width:500px)  {
+  .App-filter{
+    width: 75%;
+  }
+}
